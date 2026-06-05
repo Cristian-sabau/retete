@@ -1,0 +1,378 @@
+
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Retete Delicioase</title>
+
+    <style>
+
+        body {
+            margin: 0;
+            font-family: Arial;
+            background-color: #f5f5f5;
+
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #ff7043;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 30px;
+        }
+
+        .menu {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+
+        .menu div {
+            padding: 15px 20px;
+            color: white;
+            cursor: pointer;
+        }
+
+        .menu div:hover {
+            background-color: #555;
+        }
+
+        .main {
+            display: flex;
+            padding: 20px;
+            flex: 1;
+        }
+
+        .sidebar {
+            width: 25%;
+            background-color: white;
+            padding: 15px;
+            margin-right: 10px;
+        }
+
+        .content {
+            width: 50%;
+            background-color: white;
+            padding: 20px;
+            margin-right: 10px;
+        }
+
+        .image {
+            width: 25%;
+            background-color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #333;
+            color: white;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+
+        /* DARK MODE */
+
+        .dark {
+            background-color: #222;
+            color: white;
+        }
+
+        .dark .sidebar,
+        .dark .content,
+        .dark .image {
+            background-color: #333;
+            color: white;
+        }
+
+        /* TABLETA */
+
+        @media (max-width: 900px) {
+
+            .main {
+                flex-direction: column;
+            }
+
+            .sidebar,
+            .content,
+            .image {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+
+            .menu {
+                flex-wrap: wrap;
+            }
+        }
+
+        /* TELEFON */
+
+        @media (max-width: 600px) {
+
+            .header {
+                font-size: 22px;
+            }
+
+            .menu div {
+                font-size: 14px;
+                padding: 10px;
+            }
+
+            .content {
+                font-size: 14px;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <div class="header">
+        Retete Delicioase
+    </div>
+
+    <!-- MENIU -->
+
+    <div class="menu">
+
+        <div onclick="schimba('mic')">Mic dejun</div>
+
+        <div onclick="schimba('pranz')">Pranz</div>
+
+        <div onclick="schimba('cina')">Cina</div>
+
+        <div onclick="schimba('desert')">Desert</div>
+
+    </div>
+
+    <!-- BUTON TEMA -->
+
+    <div style="text-align:center;">
+
+        <button onclick="tema()">Schimba tema</button>
+
+    </div>
+
+    <!-- CONTINUT -->
+
+    <div class="main">
+
+        <!-- SIDEBAR -->
+
+        <div class="sidebar">
+
+            <h3>Categorii</h3>
+
+            <ul>
+                <li>Mic dejun</li>
+                <li>Pranz</li>
+                <li>Cina</li>
+                <li>Desert</li>
+            </ul>
+
+        </div>
+
+        <!-- RETETA -->
+
+        <div class="content" id="continut"></div>
+
+        <!-- IMAGINE -->
+
+        <div class="image">
+
+            <img id="poza" src="omleta.jpg">
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+
+        © 2026 Retete simple
+
+    </div>
+
+    <!-- JAVASCRIPT -->
+
+    <script>
+
+        function tema() {
+
+            document.body.classList.toggle("dark");
+
+        }
+
+        function schimba(tip) {
+
+            var text = document.getElementById("continut");
+
+            var img = document.getElementById("poza");
+
+            if (tip == "mic") {
+
+                text.innerHTML = `
+
+                <h2>Omletă cu legume</h2>
+
+                <h3>Ingrediente:</h3>
+
+                <ul>
+                    <li>2 ouă</li>
+                    <li>1 roșie</li>
+                    <li>1 ardei</li>
+                    <li>sare și piper</li>
+                    <li>puțin ulei</li>
+                </ul>
+
+                <h3>Mod de preparare:</h3>
+
+                <p>
+                Pentru început, spală bine legumele și taie-le în bucăți mici.
+                Într-un bol, bate ouăle până devin omogene, apoi adaugă sare și piper după gust.
+                Încinge o tigaie cu puțin ulei și adaugă legumele.
+                După câteva minute, toarnă ouăle peste legume și lasă omleta să se gătească la foc mic.
+                Se servește caldă și poate fi consumată alături de pâine prăjită.
+                </p>
+
+                `;
+
+                img.src = "imagini/omleta.jpg";
+
+            }
+
+            if (tip == "pranz") {
+
+                text.innerHTML = `
+
+                <h2>Paste cu sos de roșii</h2>
+
+                <h3>Ingrediente:</h3>
+
+                <ul>
+                    <li>paste</li>
+                    <li>sos de roșii</li>
+                    <li>usturoi</li>
+                    <li>ulei de măsline</li>
+                    <li>parmezan</li>
+                </ul>
+
+                <h3>Mod de preparare:</h3>
+
+                <p>
+                Fierbe pastele într-o oală cu apă și sare.
+                Într-o tigaie, pune puțin ulei și adaugă usturoiul tocat.
+                După câteva secunde, adaugă sosul de roșii și amestecă.
+                Când pastele sunt gata, scurge-le și pune-le peste sos.
+                Preparatul se servește cald și poate fi decorat cu parmezan ras.
+                </p>
+
+                `;
+
+                img.src = "imagini/paste.jpg";
+
+            }
+
+            if (tip == "cina") {
+
+                text.innerHTML = `
+
+                <h2>Salată proaspătă</h2>
+
+                <h3>Ingrediente:</h3>
+
+                <ul>
+                    <li>roșii</li>
+                    <li>castraveți</li>
+                    <li>salată verde</li>
+                    <li>ulei</li>
+                    <li>sare</li>
+                </ul>
+
+                <h3>Mod de preparare:</h3>
+
+                <p>
+                Spală bine toate legumele înainte de preparare.
+                Taie roșiile și castraveții în bucăți potrivite.
+                Adaugă salata verde într-un bol mare și pune toate ingredientele împreună.
+                Adaugă sare și puțin ulei după gust, apoi amestecă ușor.
+                Salata este ideală pentru o cină ușoară și sănătoasă.
+                </p>
+
+                `;
+
+                img.src = "imagini/salata.jpg";
+
+            }
+
+            if (tip == "desert") {
+
+                text.innerHTML = `
+
+                <h2>Prăjitură de casă</h2>
+
+                <h3>Ingrediente:</h3>
+
+                <ul>
+                    <li>ouă</li>
+                    <li>zahăr</li>
+                    <li>făină</li>
+                    <li>lapte</li>
+                    <li>unt</li>
+                </ul>
+
+                <h3>Mod de preparare:</h3>
+
+                <p>
+                Într-un bol mare, amestecă ouăle cu zahărul până când compoziția devine cremoasă.
+                Adaugă laptele și untul topit, apoi încorporează făina treptat.
+                Toarnă compoziția într-o tavă și introduce-o în cuptorul preîncălzit.
+                Lasă prăjitura la copt aproximativ 30 de minute.
+                După răcire, poate fi servită simplă sau cu zahăr pudră deasupra.
+                </p>
+
+                `;
+
+                img.src = "imagini/prajitura.jpg";
+
+            }
+
+        }
+
+        schimba('mic');
+
+    </script>
+
+</body>
+
+</html>
+
+
